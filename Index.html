@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohammad Maaz Ansari — Digital Marketing Portfolio</title>
+<meta name="description" content="Digital Marketing Portfolio of Mohammad Maaz Ansari — SEO, Social Media, Google/Meta Ads, Analytics, Content & Email Automation." />
+
+<!-- Google Fonts: Poppins (headings) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============ RESET & BASE ============ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0A192F;
+    color: #E6F1FF;
+    line-height: 1.65;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  :root {
+    --navy: #0A192F;
+    --navy-light: #112240;
+    --navy-lighter: #1B2A48;
+    --gold: #F5A623;
+    --gold-soft: #F5A62322;
+    --white: #E6F1FF;
+    --muted: #9FB3C8;
+    --border: rgba(245, 166, 35, 0.18);
+    --shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: #FFFFFF; line-height: 1.2; }
+  h1 { font-weight: 800; }
+  h2 { font-weight: 700; }
+  h3 { font-weight: 600; }
+  p { color: var(--muted); }
+
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* Section heading */
+  .section { padding: 110px 0 80px; position: relative; }
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-title::before {
+    content: "";
+    display: inline-block;
+    width: 38px; height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+  .section-sub { color: var(--muted); margin-bottom: 50px; max-width: 720px; font-size: 1rem; }
+
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 0;
+    background: transparent;
+    transition: background-color 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 0;
+    box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1180px; margin: 0 auto; padding: 0 24px;
+  }
+  .brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    letter-spacing: 0.3px;
+  }
+  .brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 0.93rem;
+    color: var(--white);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.25s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute; left: 0; bottom: -6px;
+    width: 0; height: 2px; background: var(--gold);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .hamburger {
+    display: none;
+    width: 34px; height: 34px;
+    position: relative;
+    z-index: 110;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px; width: 26px;
+    background: var(--gold);
+    margin: 6px auto;
+    transition: transform 0.35s ease, opacity 0.25s ease;
+    border-radius: 2px;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 130px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(245,166,35,0.10), transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(245,166,35,0.06), transparent 50%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 860px; }
+
+  .hero-photo {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 32px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 8px rgba(245,166,35,0.08), 0 20px 60px -20px rgba(0,0,0,0.6);
+    background: var(--navy-light);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .hero-eyebrow {
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .hero .name {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .hero .tagline {
+    color: var(--muted);
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    max-width: 720px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .hero-ctas {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    justify-content: center;
+  }
+  .btn {
+    padding: 14px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -12px rgba(245,166,35,0.6); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+  }
+  .btn-outline:hover { background: var(--gold-soft); transform: translateY(-3px); }
+
+  /* ============ ABOUT ============ */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    max-width: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .about-img-wrap::after {
+    content: "";
+    position: absolute; inset: 0;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    transform: translate(14px, 14px);
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  .about-img-wrap { position: relative; }
+  .about-img-wrap::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: rgba(245,166,35,0.18);
+    transition: background 0.3s ease;
+    z-index: 1;
+  }
+  .about-img-wrap:hover::before { background: transparent; }
+  .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .about-text p {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+  .about-text strong { color: var(--gold); font-weight: 600; }
+
+  /* ============ DOMAIN ============ */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+  }
+  .domain-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 28px 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .domain-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    background: var(--navy-lighter);
+  }
+  .domain-icon {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .domain-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+  }
+  .domain-card p {
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  /* ============ PROJECTS ============ */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 26px;
+  }
+  .project-card {
+    background: var(--navy-light);
+    border-radius: 10px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6);
+  }
+  .project-icon {
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .project-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+  }
+  .project-card .desc {
+    color: var(--muted);
+    font-size: 0.94rem;
+    margin-bottom: 22px;
+    flex-grow: 1;
+  }
+  .tools-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 20px;
+  }
+  .tool-tag {
+    font-size: 0.75rem;
+    color: var(--gold);
+    background: var(--gold-soft);
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .project-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1.5px solid var(--gold);
+    padding: 10px 18px;
+    border-radius: 6px;
+    align-self: flex-start;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .project-btn:hover { background: var(--gold-soft); transform: translateY(-2px); }
+
+  /* ============ SOCIAL ============ */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    max-width: 980px;
+  }
+  .social-card {
+    display: flex; align-items: center; gap: 18px;
+    padding: 22px 26px;
+    border-radius: 60px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  }
+  .social-card:hover { transform: translateY(-5px); box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5); filter: brightness(1.08); }
+  .social-card .icon { font-size: 1.8rem; }
+  .social-card .label-small { display: block; font-size: 0.75rem; font-weight: 400; opacity: 0.85; letter-spacing: 0.5px; }
+  .social-li { background: #0077B5; }
+  .social-mail { background: #EA4335; }
+  .social-wa { background: #25D366; }
+
+  /* ============ EDUCATION (TIMELINE) ============ */
+  .timeline {
+    position: relative;
+    padding-left: 36px;
+    max-width: 900px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px; top: 4px; bottom: 4px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold), rgba(245,166,35,0.2));
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 36px 30px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -32px; top: 6px;
+    width: 16px; height: 16px;
+    background: var(--gold);
+    border: 3px solid var(--navy);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(245,166,35,0.25);
+  }
+  .timeline-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    color: #FFFFFF;
+  }
+  .timeline-item .meta {
+    color: var(--gold);
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .timeline-item .issuer { color: var(--muted); font-size: 0.93rem; }
+  .timeline-item a {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+  }
+  .timeline-item a:hover { border-color: var(--gold); }
+
+  .timeline-divider {
+    display: flex; align-items: center; gap: 14px;
+    margin: 10px 0 30px 0;
+    color: var(--gold);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-left: 30px;
+  }
+  .timeline-divider::after {
+    content: "";
+    flex: 1; height: 1px;
+    background: rgba(245,166,35,0.25);
+    max-width: 280px;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    padding: 50px 24px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: #07142A;
+  }
+  .footer p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+  .footer-icons {
+    display: flex; justify-content: center; gap: 18px;
+  }
+  .footer-icons a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--navy-light);
+    font-size: 1.15rem;
+    transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
+  }
+  .footer-icons a:hover {
+    background: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  /* ============ BACK TO TOP ============ */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 10px 25px -8px rgba(245,166,35,0.55);
+    z-index: 90;
+  }
+  .back-to-top.visible { opacity: 1; visibility: visible; }
+  .back-to-top:hover { transform: translateY(-4px); }
+
+  /* ============ FADE-IN ANIMATION ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-wrap { max-width: 420px; margin: 0 auto; }
+    .section { padding: 90px 0 60px; }
+  }
+
+  @media (max-width: 720px) {
+    .hamburger { display: block; }
+    .nav-links {
+      position: fixed;
+      top: 0; right: -100%;
+      height: 100vh; width: 75%;
+      max-width: 320px;
+      background: #112240;
+      flex-direction: column;
+      justify-content: center;
+      gap: 36px;
+      transition: right 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+    .nav-links.open { right: 0; }
+    .nav-links a { font-size: 1.05rem; }
+    .hero-photo { width: 150px; height: 150px; }
+    .hero-ctas { flex-direction: column; align-items: stretch; max-width: 320px; margin: 0 auto; }
+    .btn { justify-content: center; }
+    .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+    .section-title { font-size: 1.6rem; }
+  }
+
+  @media (max-width: 420px) {
+    .hero { padding-top: 110px; }
+    .section { padding: 80px 0 50px; }
+    .domain-card, .project-card { padding: 24px 20px; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- =============== NAVBAR =============== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand">Maaz<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#domain">Domain</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#connect">Connect</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- =============== HERO =============== -->
+<header class="hero" id="home">
+  <div class="hero-inner reveal">
+    <!-- [REPLACE THIS] Hero circular profile photo -->
+    <div class="hero-photo">
+      <img src="https://drive.google.com/thumbnail?id=1MrYuinaEfUyJNb-FRnuUnDrvZMSA_-do&sz=w600"
+           alt="Mohammad Maaz Ansari" loading="eager"
+           onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1MrYuinaEfUyJNb-FRnuUnDrvZMSA_-do=w600';" />
+    </div>
+
+    <div class="hero-eyebrow">Hello, I'm</div>
+    <h1>Digital Marketing Portfolio</h1>
+    <!-- [REPLACE THIS] Name -->
+    <div class="name">Mohammad Maaz Ansari</div>
+    <!-- [REPLACE THIS] Tagline -->
+    <p class="tagline">
+      Digital Marketing &middot; Performance Marketing &middot; Content Marketing &middot;
+      Web Designing &middot; Google Analytics &middot; Google Ads &middot; Meta Ads &middot;
+      SEO Optimization &middot; SEM Execution &middot; Customer Relationship Management
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">View My Work ↓</a>
+      <!-- [REPLACE THIS] Resume direct-download link -->
+      <a href="https://drive.google.com/uc?export=download&id=1YPbHNSy0WS9Y3SvOKmOyxeM56_gMjarf"
+         class="btn btn-outline" target="_blank" rel="noopener">Download Resume ⬇</a>
+    </div>
+  </div>
+</header>
+
+<!-- =============== ABOUT =============== -->
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title reveal">About Me</h2>
+    <div class="about-grid">
+      <!-- [REPLACE THIS] About portrait image (4:5) -->
+      <div class="about-img-wrap reveal">
+        <img src="https://drive.google.com/thumbnail?id=1ZIXk7FX5kXmLMOCf7WtXbpabUVwvXLUe&sz=w800"
+             alt="Mohammad Maaz Ansari portrait"
+             onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1ZIXk7FX5kXmLMOCf7WtXbpabUVwvXLUe=w800';" />
+      </div>
+      <div class="about-text reveal">
+        <!-- [REPLACE THIS] About paragraph -->
+        <p>
+          In the digital age, a website is more than just a visual placeholder — it is a
+          <strong>performance machine</strong>. I'm <strong>Mohammad Maaz Ansari</strong>, a
+          BBA graduate specializing in Marketing, and I build high-conversion web experiences
+          that don't just look great, but are engineered to perform.
+        </p>
+        <p>
+          By integrating strategic <strong>SEO</strong>, precise <strong>analytics</strong>,
+          and data-driven <strong>ad campaigns</strong>, I help brands turn passive visitors
+          into loyal customers. From the initial layout design to full-funnel CRM and email
+          automation, I provide end-to-end digital solutions designed for one goal:
+          <strong>measurable growth</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== MY DOMAIN =============== -->
+<section class="section" id="domain">
+  <div class="container">
+    <h2 class="section-title reveal">My Domain</h2>
+    <p class="section-sub reveal">The disciplines I combine to drive end-to-end digital performance.</p>
+
+    <!-- [REPLACE THIS] Domain cards (7 items) -->
+    <div class="domain-grid">
+      <div class="domain-card reveal">
+        <span class="domain-icon">📈</span>
+        <h3>SEO &amp; SEM</h3>
+        <p>On-page, off-page and technical SEO to grow organic visibility &amp; rankings.</p>
+      </div>
+      <div class="domain-card reveal">
+        <span class="domain-icon">📱</span>
+        <h3>Social Media Marketing</h3>
+        <p>Strategy, content &amp; community building across Instagram, LinkedIn &amp; more.</p>
+      </div>
+      <div class="domain-card reveal">
+        <span class="domain-icon">✍️</span>
+        <h3>Content Marketing</h3>
+        <p>Story-driven copy and content that educates, attracts &amp; converts audiences.</p>
+      </div>
+      <div class="domain-card reveal">
+        <span class="domain-icon">📊</span>
+        <h3>Analytics &amp; Reporting</h3>
+        <p>GA4 setup, dashboarding &amp; actionable reports to guide marketing decisions.</p>
+      </div>
+      <div class="domain-card reveal">
+        <span class="domain-icon">💰</span>
+        <h3>Paid Advertising</h3>
+        <p>Performance-driven Google &amp; Meta Ads optimized for ROAS &amp; lead quality.</p>
+      </div>
+      <div class="domain-card reveal">
+        <span class="domain-icon">📧</span>
+        <h3>Email Marketing</h3>
+        <p>Drip campaigns &amp; lifecycle flows that nurture leads into paying customers.</p>
+      </div>
+      <div class="domain-card reveal">
+        <span class="domain-icon">🤝</span>
+        <h3>Customer Relationship Mgmt</h3>
+        <p>CRM workflows that align sales &amp; marketing for higher retention.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== PROJECTS =============== -->
+<section class="section" id="projects">
+  <div class="container">
+    <h2 class="section-title reveal">Projects</h2>
+    <p class="section-sub reveal">A snapshot of hands-on work across web, SEO, paid ads &amp; analytics.</p>
+
+    <!-- [REPLACE THIS] Project cards (5 items) -->
+    <div class="projects-grid">
+
+      <article class="project-card reveal">
+        <div class="project-icon">🌐</div>
+        <h3>Web Development</h3>
+        <p class="desc">Created a Blog website through WordPress using GoDaddy (Domain) and Hostinger (Hosting) — focused on clean layout, speed &amp; readability.</p>
+        <div class="tools-tags">
+          <span class="tool-tag">GoDaddy</span>
+          <span class="tool-tag">Hostinger</span>
+          <span class="tool-tag">WordPress</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1_wY9KK54aIwfh64VtRJflH0yOdQBiro-/view"
+           target="_blank" rel="noopener" class="project-btn">View Presentation (PDF) →</a>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-icon">🔍</div>
+        <h3>SEO Audit</h3>
+        <p class="desc">Executed a Search Engine Optimization (SEO) program for my Blog website to identify the metrics &amp; keywords required for a strong ranking and web presence.</p>
+        <div class="tools-tags">
+          <span class="tool-tag">SEMrush</span>
+          <span class="tool-tag">Search Console</span>
+          <span class="tool-tag">PageSpeed</span>
+        </div>
+        <a href="https://drive.google.com/file/d/14NioqJ2qSJf-MSyeFOkDNgIezFAr-Yg-/view"
+           target="_blank" rel="noopener" class="project-btn">View Presentation (PDF) →</a>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-icon">💰</div>
+        <h3>Google Ads</h3>
+        <p class="desc">Created an ad campaign for the website on Google Ads — covering keyword targeting, ad copy &amp; campaign structure.</p>
+        <div class="tools-tags">
+          <span class="tool-tag">Google Ads</span>
+          <span class="tool-tag">Keyword Planner</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1Ejwx_o0JgCpFotv3AT329IkrDKP-YxMC/view"
+           target="_blank" rel="noopener" class="project-btn">View Presentation (PDF) →</a>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-icon">📱</div>
+        <h3>Meta Ads</h3>
+        <p class="desc">Created an engaging ad campaign on Meta Business Suite — audience targeting, creative testing &amp; placement strategy.</p>
+        <div class="tools-tags">
+          <span class="tool-tag">Meta Business Suite</span>
+          <span class="tool-tag">Canva</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1dIV01pv6Vry92F8qfJMyaBrOVxaUSSkX/view"
+           target="_blank" rel="noopener" class="project-btn">View Presentation (PDF) →</a>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-icon">📊</div>
+        <h3>Google Analytics (GA4)</h3>
+        <p class="desc">Executed a complete web analytics study (GA4) for the <em>Google Merchandise Store</em> and prepared a structured insights report.</p>
+        <div class="tools-tags">
+          <span class="tool-tag">Google Analytics (GA4)</span>
+          <span class="tool-tag">Looker Studio</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1ifGrWL4yMJ-AAaOIL0cCxXd1YqkMVS1_/view"
+           target="_blank" rel="noopener" class="project-btn">View Presentation (PDF) →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============== SOCIAL / CONNECT =============== -->
+<section class="section" id="connect">
+  <div class="container">
+    <h2 class="section-title reveal">Let's Connect</h2>
+    <p class="section-sub reveal">Open to collaborations, freelance projects &amp; full-time roles in digital marketing.</p>
+
+    <div class="social-grid">
+      <!-- [REPLACE THIS] LinkedIn -->
+      <a href="https://www.linkedin.com/in/mdmaazansari" target="_blank" rel="noopener"
+         class="social-card social-li reveal">
+        <span class="icon">🔗</span>
+        <span>
+          LinkedIn
+          <span class="label-small">/in/mdmaazansari</span>
+        </span>
+      </a>
+      <!-- [REPLACE THIS] Email -->
+      <a href="mailto:mdmaazansari0108@email.com" class="social-card social-mail reveal">
+        <span class="icon">📧</span>
+        <span>
+          Email
+          <span class="label-small">mdmaazansari0108@email.com</span>
+        </span>
+      </a>
+      <!-- [REPLACE THIS] WhatsApp -->
+      <a href="https://wa.me/9801341216" target="_blank" rel="noopener"
+         class="social-card social-wa reveal">
+        <span class="icon">💬</span>
+        <span>
+          WhatsApp
+          <span class="label-small">+91 98013 41216</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =============== EDUCATION & CERTIFICATIONS =============== -->
+<section class="section" id="education">
+  <div class="container">
+    <h2 class="section-title reveal">Education &amp; Certifications</h2>
+    <p class="section-sub reveal">Academic foundation paired with continuous upskilling in modern digital marketing.</p>
+
+    <div class="timeline-divider reveal">Education</div>
+    <div class="timeline reveal">
+      <!-- [REPLACE THIS] Education entries -->
+      <div class="timeline-item">
+        <span class="meta">2021 — 2024</span>
+        <h3>Bachelor of Business Administration (Marketing)</h3>
+        <p class="issuer">Netaji Subhas University, Jamshedpur</p>
+      </div>
+      <div class="timeline-item">
+        <span class="meta">2019 — 2021</span>
+        <h3>ISC (Class XII)</h3>
+        <p class="issuer">Kerala Public School</p>
+      </div>
+    </div>
+
+    <div class="timeline-divider reveal">Certifications</div>
+    <div class="timeline reveal">
+      <!-- [REPLACE THIS] Certification entries -->
+      <div class="timeline-item">
+        <span class="meta">2026</span>
+        <h3>Digital Marketing with AI</h3>
+        <p class="issuer">PW Skills</p>
+        <a href="https://drive.google.com/file/d/1flvEuhb77WW1wXfjncwK5ihv8lI5FaHn/view"
+           target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="timeline-item">
+        <span class="meta">2026</span>
+        <h3>Meta Ads that Sell</h3>
+        <p class="issuer">IDigitalPreneur</p>
+        <a href="https://drive.google.com/file/d/1xuc3JMjtoKXeKX_lGeCHsun1BBn26rWU/view"
+           target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="timeline-item">
+        <span class="meta">2026</span>
+        <h3>Content Marketing</h3>
+        <p class="issuer">IDigitalPreneur</p>
+        <a href="https://drive.google.com/file/d/1vQRF2m7TFJj59a7jH28RnAPC2S-ONHXa/view"
+           target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== FOOTER =============== -->
+<footer class="footer">
+  <p>© 2026 <strong style="color:#F5A623;">Mohammad Maaz Ansari</strong> · Built with passion for marketing</p>
+  <div class="footer-icons">
+    <a href="https://www.linkedin.com/in/mdmaazansari" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
+    <a href="mailto:mdmaazansari0108@email.com" aria-label="Email">📧</a>
+    <a href="https://wa.me/9801341216" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  </div>
+</footer>
+
+<!-- =============== BACK TO TOP =============== -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+  /* ---------- NAVBAR SCROLL EFFECT ---------- */
+  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    if (window.scrollY > 400) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+
+  /* ---------- HAMBURGER MENU ---------- */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  /* ---------- BACK TO TOP ---------- */
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ---------- SCROLL REVEAL ---------- */
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach((el, i) => {
+    // stagger reveals within a group slightly
+    el.style.transitionDelay = (i % 6) * 60 + 'ms';
+    io.observe(el);
+  });
+
+  /* ---------- Smooth scroll polyfill fallback (older browsers) ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"7f7b0fd8732c4326aae4b9d58d5c514a","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
